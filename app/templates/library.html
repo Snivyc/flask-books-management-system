@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block nav %}
+<ul class="nav navbar-nav">
+    <li><a href="/user">用户主页</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/library">图书排行榜</a></li>
+</ul>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>图书排行榜</h1>
+</div>
+<div class="page-body">
+    <table class="table">
+        <tr class="active"> <td>图书编号</td> <td>书名</td> <td>作者</td> <td>出版社</td> <td>出版日期</td>
+            <td>价格</td> <td>分类</td> <td>馆藏数量</td> <td>剩余数量</td> <td>读者范围</td>
+            <td>被借次数</td>
+        </tr>
+    {% for book in books %}
+    <tr>
+        {% for x in book %}
+        <td>{{x}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

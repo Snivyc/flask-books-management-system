@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block nav %}
+<ul class="nav navbar-nav">
+    <li><a href="/admin">系统管理员主页</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/all_user">所有用户</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/add_new_user">添加用户</a></li>
+</ul>
+{% endblock %}
+
+
+{% block page_content %}
+<div class="page-header">
+    <h1>添加用户</h1>
+</div>
+{{ wtf.quick_form(form) }}
+{% endblock %}

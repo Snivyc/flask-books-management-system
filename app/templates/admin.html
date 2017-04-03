@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<ul class="nav navbar-nav">
+    <li><a href="/admin">系统管理员主页</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/all_user">所有用户</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/add_new_user">添加用户</a></li>
+</ul>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello,administrator {{ name }}!</h1>
+</div>
+<img src="{{ url_for('static', filename='xixixi.png') }}" width="100%">
+{% endblock %}

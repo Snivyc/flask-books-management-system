@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block nav %}
+<ul class="nav navbar-nav">
+    <li><a href="/book_admin">图书管理员主页</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/book_admin/borrow">借书</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/book_admin/return">还书</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/all_book">所有图书</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/add_new_book">添加图书</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/timeout">超期图书</a></li>
+</ul>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello,librarian {{ name }}!</h1>
+</div>
+<img src="{{ url_for('static', filename='xixixi.png') }}" width="100%">
+{% endblock %}

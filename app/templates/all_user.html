@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block nav %}
+<ul class="nav navbar-nav">
+    <li><a href="/admin">系统管理员主页</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/all_user">所有用户</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/add_new_user">添加用户</a></li>
+</ul>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>所有用户</h1>
+</div>
+<div class="page-body">
+    <table class="table">
+        <tr class="active"> <td>用户ID</td> <td>姓名</td> <td>学号</td> <td>班级</td> <td>欠款</td>
+            <td>角色</td> <td>密码</td> <td>是否挂失</td> <td>编辑</td> <td>删除</td>
+        </tr>
+    {% for student in students %}
+    <tr>
+        {% for x in student %}
+        <td>{{x}}</td>
+        {% endfor %}
+        <td><a href="user_edit/{{student[0]}}">
+            <span class="glyphicon glyphicon-pencil">
+            </span></a>
+        </td>
+        <td><a href="javascript:if(confirm('确实要删除该条记录吗？'))location='/delete_user/{{student[0]}}'"
+               style="cursor: pointer">
+            <span class="glyphicon glyphicon-remove"></span></a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

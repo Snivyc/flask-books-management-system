@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block nav %}
+<ul class="nav navbar-nav">
+    <li><a href="/book_admin">图书管理员主页</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/book_admin/borrow">借书</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/book_admin/return">还书</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/all_book">所有图书</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/add_new_book">添加图书</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/timeout">超期图书</a></li>
+</ul>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>超期图书</h1>
+</div>
+<div class="page-body">
+    <table class="table">
+        <tr class="active"> <td>用户ID</td> <td>书本ID</td> <td>借阅日期</td> <td>还书日期</td>
+        </tr>
+    {% for book in books %}
+    <tr>
+        {% for x in book %}
+        <td>{{x}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

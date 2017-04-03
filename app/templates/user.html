@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block nav %}
+<ul class="nav navbar-nav">
+    <li><a href="/user">用户主页</a></li>
+</ul>
+<ul class="nav navbar-nav">
+    <li><a href="/library">图书排行榜</a></li>
+</ul>
+{% endblock %}
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {{ name }}!</h1>
+</div>
+<div class="page-body">
+    目前欠款{{debt}}元。<br>
+    <h4 align="center">借书列表</h4>
+    <table class="table">
+        <tr class="active"> <td>用户ID</td> <td>图书编号</td> <td>借书日期</td> <td>还书期限</td>
+        </tr>
+    {% for book in books %}
+    <tr>
+        {% for x in book %}
+        <td>{{x}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+
+</div>
+{% endblock %}
